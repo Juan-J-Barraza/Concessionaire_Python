@@ -1,0 +1,106 @@
+@startuml "ejercicio29"
+
+class Concessionaire {
+    - String Name;
+    - String NIT;
+    - List<Service> listServices;
+    - List<Seller> listSellers;
+
+}
+
+class TypeConcessionaire {
+    - String brand;
+    - Concessionaire concesionarie;
+    - Car car;
+}
+
+class Car {
+    - String frameNumber;
+    - Float price;
+    - Float discount;
+    - String technicalData;
+    - String power;
+    - String brand;
+    - String models;
+    - String status;
+    - String Feactures;
+    - List<Equipment> listEquipmets;
+    - List<ExtraEquipment> listAvailableExtras;
+}
+
+class Equipment {
+    - String name;
+    - String type;
+    - String features;
+}
+
+class ExtraEquipment {
+    - String name;
+    - String price;
+}
+
+class Inventory {
+    - Concessionaire location;
+    - List<Service> locationServices;
+    - List<Car> listCars
+}
+
+class Client {
+    - String name;
+    - String lastName;
+    - String typeDocument;
+    - String numberDocument;
+}
+
+class Seller {
+    - String name;
+    - String lastName;
+    - String NIF;
+    - String address;
+    - List<Client> listClients;
+    - List<Sale> listSales;
+
+}
+
+class Document {
+    - String payMethod;
+    - Date date;
+    - Client client;
+    - List<ExtraEquipment> listExtraEquipments;
+    - Car car;
+    - Seller seller;
+
+}
+
+class Service {
+    - String name;
+    - String address;
+    - String NIF;
+}
+
+class Sale {
+    - String registration;
+    - String originCar;
+    - Document document;
+}
+
+
+Concessionaire "*" -- "*" Car: Have
+(Concessionaire, Car) .. TypeConcessionaire
+Car "1"  -- "*" Equipment: Includes
+Car "1" -- "*" ExtraEquipment: Could Have
+Concessionaire "1" -- "1" Inventory: Manages
+Concessionaire "1" -- "*" Service: Serves
+Concessionaire "1" -- "*" Seller: Employs
+Document "1" -- "1" Sale: Details
+Client "1" -- "1" Document: Is detailed in
+Seller "1" -- "*" Client: Serves
+Seller "1" -- "*" Sale: Conducts
+Document "1" -- "1" Seller: Contain
+Car "1" -- "1" Document: Contain
+Document "1" -- "*" ExtraEquipment: Contain
+Car "*" -- "1" Inventory: Contain
+Inventory "1" -- "*" Service: Is detailed in
+
+
+@enduml
