@@ -5,13 +5,8 @@ class Concessionaire {
     - String NIT;
     - List<Service> listServices;
     - List<Seller> listSellers;
+    - List<Car> listCars;
 
-}
-
-class TypeConcessionaire {
-    - String brand;
-    - Concessionaire concesionarie;
-    - Car car;
 }
 
 class Car {
@@ -24,6 +19,7 @@ class Car {
     - String models;
     - String status;
     - String Feactures;
+    - Concessionaire concessionaire;
     - List<Equipment> listEquipmets;
     - List<ExtraEquipment> listAvailableExtras;
 }
@@ -41,8 +37,6 @@ class ExtraEquipment {
 
 class Inventory {
     - Concessionaire location;
-    - List<Service> locationServices;
-    - List<Car> listCars
 }
 
 class Client {
@@ -50,6 +44,7 @@ class Client {
     - String lastName;
     - String typeDocument;
     - String numberDocument;
+    - Seller seller;
 }
 
 class Seller {
@@ -57,8 +52,10 @@ class Seller {
     - String lastName;
     - String NIF;
     - String address;
+    - Concessionaire concessionaire;
     - List<Client> listClients;
     - List<Sale> listSales;
+    - List<Document> listDocuments;
 
 }
 
@@ -66,7 +63,6 @@ class Document {
     - String payMethod;
     - Date date;
     - Client client;
-    - List<ExtraEquipment> listExtraEquipments;
     - Car car;
     - Seller seller;
 
@@ -85,10 +81,9 @@ class Sale {
 }
 
 
-Concessionaire "*" -- "*" Car: Have
-(Concessionaire, Car) .. TypeConcessionaire
+Concessionaire "1" -- "*" Car: Have
 Car "1"  -- "*" Equipment: Includes
-Car "1" -- "*" ExtraEquipment: Could Have
+Car "0" -- "*" ExtraEquipment: Could Have
 Concessionaire "1" -- "1" Inventory: Manages
 Concessionaire "1" -- "*" Service: Serves
 Concessionaire "1" -- "*" Seller: Employs
@@ -96,11 +91,7 @@ Document "1" -- "1" Sale: Details
 Client "1" -- "1" Document: Is detailed in
 Seller "1" -- "*" Client: Serves
 Seller "1" -- "*" Sale: Conducts
-Document "1" -- "1" Seller: Contain
+Document "*" -- "1" Seller: Contain
 Car "1" -- "1" Document: Contain
-Document "1" -- "*" ExtraEquipment: Contain
-Car "*" -- "1" Inventory: Contain
-Inventory "1" -- "*" Service: Is detailed in
-
 
 @enduml

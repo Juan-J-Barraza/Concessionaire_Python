@@ -1,7 +1,7 @@
 
 
 class Car:
-    def __init__(self, frame_number=None, price=None, discount=None, technical_data=None, power=None, brand=None, models=None, status=None, features=None):
+    def __init__(self, frame_number=None, price=None, discount=None, technical_data=None, power=None, brand=None, models=None, status=None, features=None, concessionaire=None):
         self.frame_number = frame_number
         self.price = price
         self.discount = discount
@@ -11,6 +11,7 @@ class Car:
         self.models = models
         self.status = status
         self.features = features
+        self.concessionaire = concessionaire
         self.list_equipments = []
         self.list_available_extras = []
 
@@ -74,7 +75,13 @@ class Car:
         return self.features
 
     def set_features(self, features):
-        self.features = features        
+        self.features = features      
+    
+    def get_concessionaire(self):
+        return self.concessionaire
+    
+    def set_concesssionaire(self, concessionaire):
+        self.concessionaire = concessionaire  
 
     def get_list_equipments(self):
         return self.list_equipments

@@ -7,7 +7,6 @@ class Document:
         self.client = client
         self.car = car
         self.seller = seller
-        self.list_extra_equipments = []
         
     def __str__(self):
         return f"Docuemnt(pay_method={self.pay_method}, date={self.date}, client={self.client}, car={self.car}), seller={self.seller}"
@@ -30,12 +29,6 @@ class Document:
     def set_client(self, client):
         self.client = client
 
-    def get_list_extra_equipments(self):
-        return self.list_extra_equipments
-
-    def set_list_extra_equipments(self, list_extra_equipments):
-        self.list_extra_equipments = list_extra_equipments
-
     def get_car(self):
         return self.car
 
@@ -47,6 +40,3 @@ class Document:
 
     def set_seller(self, seller):
         self.seller = seller
-
-    def add_extra_equipment(self, extra):
-        self.list_extra_equipments.append(extra)

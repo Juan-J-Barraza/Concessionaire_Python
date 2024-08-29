@@ -7,6 +7,7 @@ class Concessionaire:
         self.NIT = NIT
         self.list_services = []
         self.list_sellers = []
+        self.list_cars = []
     
     def __str__(self):
         services = ', '.join([service.name for service in self.list_services])
@@ -36,9 +37,18 @@ class Concessionaire:
 
     def set_list_sellers(self, list_sellers):
         self.list_sellers = list_sellers
+        
+    def get_list_cars(self):
+        return self.list_cars
+    
+    def set_listt_cars(self, list_cars):
+        self.list_cars = list_cars
     
     def add_service(self, service):
         self.list_services.append(service)
 
     def add_sellers(self, seller):
         self.list_sellers.append(seller)
+        
+    def add_cars(self, car):
+        self.list_cars.append(car)

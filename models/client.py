@@ -1,11 +1,12 @@
 
 
 class Client:
-   def __init__(self, name, last_name, doc_type, doc_number):
+   def __init__(self, name, last_name, doc_type, doc_number, seller):
     self.name = name
     self.last_name = last_name
     self.doc_type = doc_type
     self.doc_number = doc_number
+    self.seller = seller
 
     
     def __str__(self):
@@ -34,3 +35,9 @@ class Client:
     
     def set_number_document(self, number_document):
         self.number_document = number_document
+    
+    def get_seller(self):
+        return self.seller
+    
+    def set_seller(self, seller):
+        self.seller = seller

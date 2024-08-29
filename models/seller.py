@@ -1,15 +1,17 @@
 
 class Seller:
-    def __init__(self, name=None, last_name=None, NIF=None, address=None):
+    def __init__(self, name=None, last_name=None, NIF=None, address=None, concessionaire=None):
         self.name = name
         self.last_name = last_name
         self.NIF = NIF
         self.address = address
         self.list_clients = []
         self.list_sales = []
+        self.concessionaire = concessionaire
+        self.list_documents = []
     
     def __str__(self):
-        return f"Seller(name={self.name}, last_name={self.last_name}, NIF={self.NIF}, list_clients={self.list_clients}, list_sales={self.list_sales})"
+        return f"Seller(name={self.name}, last_name={self.last_name}, NIF={self.NIF})"
 
     def get_name(self):
         return self.name
@@ -47,8 +49,23 @@ class Seller:
     def set_list_sales(self, list_sales):
         self.list_sales = list_sales
     
+    def get_concessionaire(self):
+        return self.concessionaire
+    
+    def set_concessionaire(self, concessionaire):
+        self.concessionaire = concessionaire
+    
+    def get_list_documennts(self):
+        return self.list_documents
+    
+    def set_list_documents(self, list_documents):
+        self.list_documents = list_documents
+    
     def add_clients(self, clients):
         self.list_clients.append(clients)
     
     def add_sales(self, sales):
         self.list_sales.append(sales)
+    
+    def add_documents(self, document):
+        self.list_documents.append(document)
