@@ -10,9 +10,8 @@ class Concessionaire:
         self.list_cars = []
     
     def __str__(self):
-        services = ', '.join([service.name for service in self.list_services])
         sellers = ', '.join([seller.name for seller in self.list_sellers])
-        return f"Concessionaire(name={self.name}, NIT={self.NIT}, list_services=[{services}], list_sellers=[{sellers}])"
+        return f"Concessionaire(name={self.name}, NIT={self.NIT}, list_sellers=[{sellers}])"
 
     def get_name(self):
         return self.name

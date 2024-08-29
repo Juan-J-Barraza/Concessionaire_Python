@@ -55,22 +55,28 @@ def main():
     # objects Sale
     sale = Sale(registration="REG001", origin_car="concessionaire", document=document)
     seller.add_sales(sale)
+    seller.add_documents(document)
     concessionaire.add_cars(car)
+    
+    #sellers = ', '.join([str(seller) for seller in concessionaire.get_list_sellers()])
+    #documents = ','.join([str(document) for document in seller.get_list_documennts()])
+    #services = ', '.join([str(service) for service in concessionaire.get_list_services()])
+    
+    
 
-
+    #print(f"documents: {documents}")
     #print(f"Concessionaire: {type_concessionaire.get_concesionarie()}")
-    #print(f"Car Model: {concessionaire.get_list_cars()}")
-    print(f"car: {car.get_concessionaire()}")
+    #print(f"sellers: {sellers}")
+    #print(f"car: {car.get_concessionaire()}")
     #print(f"Sale Registration: {sale.registration}")
     #print(f"Client Name: {document.client.name}")
-    #print(f"Extra Equipment: {document.list_extra_equipments[0].name}, {document.list_extra_equipments[1].name}")
+    #print(f"Extra Equipment: {document.car.models}")
     #print(f"Available Extras List: {[extra.name for extra in car.list_available_extras]}")
     #print(f"Extra Equipment: {document.list_extra_equipments[0].name}")
     #print(f"List of Sales for Seller: {[sale.registration for sale in seller.list_sales]}")
     #print("Servicios Disponibles en el Concessionaire:")
     #print(f"Inventory of Cars: {[car.frame_number for car in inventory.list_cars]}")
-    #print(f"Location of Inventory: {inventory.location.name}")
-    #print(f"Location of Inventory Services: {[service.name for service in inventory.location_services]}")
+    #print(f"Location of Inventory: {services}")
 
 
 if __name__ == "__main__":
